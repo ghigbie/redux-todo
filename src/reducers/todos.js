@@ -1,5 +1,5 @@
 const initialState = {
-    data: []
+    data: ['moo']
 }
 
 const todos = (state = initialState, action) => {
@@ -7,15 +7,15 @@ const todos = (state = initialState, action) => {
         case 'ADD_TODO':
             return {
                 ...state,
-                data: [...state.data, {id: Math.random(), text: action.text}]
+                data: [...state.data, {
+                    id: action.id, 
+                    text: action.text
+                }]
             }
 
         case 'DELETE_TODO':
             const newData = state.data.filter((id) => id !== todos.id)
-            return{
-                ...state,
-                
-            }
+            return newData;
         
         default:
             return state;     

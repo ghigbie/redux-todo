@@ -1,5 +1,5 @@
 const initialState = {
-    data: ['moo']
+    data: []
 }
 
 const todos = (state = initialState, action) => {
@@ -14,8 +14,11 @@ const todos = (state = initialState, action) => {
             }
 
         case 'DELETE_TODO':
-            const newData = state.data.filter((id) => id !== todos.id)
-            return newData;
+            const todos = state.data.filter((todo) => todo.id !== action.id)
+            return {
+                ...state,
+                data: todos
+            }
         
         default:
             return state;     

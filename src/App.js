@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {connect} from 'react-redux';
 import AddTodo from './components/AddTodo/AddTodo';
@@ -11,13 +10,5 @@ const App = (props) => (
     </div>
   );
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  const mooo = state.todos.data[0];
-  console.log(mooo);
-  return {
-    moo: state.todos.data[0]
-  }
-}
 
-export default connect(mapStateToProps)(App);
+export default connect()(App);

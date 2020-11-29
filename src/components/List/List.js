@@ -8,8 +8,14 @@ const List = (props) => {
         <div>
             <div>List</div>
             <ul>
-            {
-                props.todos.map((todo, index) => (<li key={index}>{todo.text}</li>))
+            {   props.todos ?
+                props.todos.map((todo) => (
+                    <li key={todo.id}>
+                    <span>{todo.text}</span>
+                    <button onClick={() => props.dispatch(deleteTodo(todo.id))}>Delete</button>
+                    </li>))
+                :
+                (<div>Nothing to see here</div>)
             }
             </ul>
         </div>
